@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+	
+  <groupId>com.colomob.shared</groupId>
+  <artifactId>biz.immortal.analysis</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+
+  <name>biz.analysis.entrance</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<spring_version>2.5.5</spring_version>
+  </properties>
+
+  <dependencies>	
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjrt</artifactId>
+		<version>1.6.0</version>
+	</dependency>
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjweaver</artifactId>
+		<version>1.6.0</version>
+	</dependency>
+	<dependency>
+		<groupId>cglib</groupId>
+		<artifactId>cglib</artifactId>
+		<version>2.2</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context</artifactId>
+		<version>${spring_version}</version>
+	</dependency>   
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-aop</artifactId>
+		<version>${spring_version}</version>
+	</dependency>   
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-test</artifactId>
+		<version>${spring_version}</version>
+		<scope>test</scope>
+	</dependency>            
+	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.11</version>
+		<scope>test</scope>
+	</dependency>
+  </dependencies> 
+  
+  <repositories>  
+	<repository>  
+	    <snapshots>  
+	        <enabled>true</enabled>  
+	    </snapshots>  
+	    <id>public</id>  
+	    <name>Public Repositories</name>  
+	    <url>http://192.168.1.109:8081/nexus/content/groups/public/</url>  
+	</repository>  
+   </repositories>  
+   <pluginRepositories>  
+	<pluginRepository>  
+	    <id>public</id>  
+	    <name>Public Repositories</name>  
+	    <url>http://192.168.1.109:8081/nexus/content/groups/public/</url>  
+	</pluginRepository>  
+   </pluginRepositories>  
+</project>
