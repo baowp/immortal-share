@@ -22,7 +22,7 @@ import com.colomob.immortal.analysis.entrance.dto.RegisterDTO;
  * 
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "/spring/spring-context.xml")
+@ContextConfiguration(locations = "/spring/analysisEntrance.xml")
 public class EntranceRegisterServiceTest {
 
 	@Autowired
