@@ -18,4 +18,6 @@ import com.colomob.immortal.analysis.entrance.dto.RegisterDTO;
 public interface EntranceRegisterService {
 
 	int send(RegisterDTO register);
+
+	int setout(RegisterDTO register);
 }

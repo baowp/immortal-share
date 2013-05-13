@@ -56,21 +56,31 @@
 	</dependency>
   </dependencies> 
   
-  <repositories>  
-	<repository>  
-	    <snapshots>  
-	        <enabled>true</enabled>  
-	    </snapshots>  
-	    <id>public</id>  
-	    <name>Public Repositories</name>  
-	    <url>http://192.168.1.109:8081/nexus/content/groups/public/</url>  
-	</repository>  
-   </repositories>  
-   <pluginRepositories>  
-	<pluginRepository>  
-	    <id>public</id>  
-	    <name>Public Repositories</name>  
-	    <url>http://192.168.1.109:8081/nexus/content/groups/public/</url>  
-	</pluginRepository>  
-   </pluginRepositories>  
+
+   <distributionManagement>  
+	   <repository>  
+	     <id>colomobreleases</id>  
+	     <name>Internal Releases</name>  
+	     <url>http://192.168.1.109:8081/nexus/content/repositories/thirdparty</url>  
+	   </repository>  
+	</distributionManagement>  
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	
 </project>

@@ -9,6 +9,7 @@
  */
 package com.colomob.immortal.analysis.entrance.service.impl;
 
+import org.junit.Ignore;
 import org.springframework.stereotype.Service;
 
 import com.colomob.immortal.analysis.entrance.dto.RegisterDTO;
@@ -23,6 +24,12 @@ public class EntranceRegisterServiceImpl implements EntranceRegisterService {
 
 	public int send(RegisterDTO register) {
 		System.out.println("self register");
+		return 0;
+	}
+
+	@Ignore
+	public int setout(RegisterDTO register) {
+		System.out.println("self setout");
 		return 0;
 	}
 
