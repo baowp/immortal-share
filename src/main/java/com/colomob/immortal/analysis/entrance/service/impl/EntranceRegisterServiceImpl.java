@@ -9,9 +9,9 @@
  */
 package com.colomob.immortal.analysis.entrance.service.impl;
 
-import org.junit.Ignore;
 import org.springframework.stereotype.Service;
 
+import com.colomob.immortal.analysis.entrance.annotations.RequestUri;
 import com.colomob.immortal.analysis.entrance.dto.RegisterDTO;
 import com.colomob.immortal.analysis.entrance.service.EntranceRegisterService;
 
@@ -22,12 +22,12 @@ import com.colomob.immortal.analysis.entrance.service.EntranceRegisterService;
 @Service
 public class EntranceRegisterServiceImpl implements EntranceRegisterService {
 
+	@RequestUri("/user/register")
 	public int send(RegisterDTO register) {
 		System.out.println("self register");
 		return 0;
 	}
 
-	@Ignore
 	public int setout(RegisterDTO register) {
 		System.out.println("self setout");
 		return 0;
