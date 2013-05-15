@@ -14,7 +14,12 @@
 
 	<bean id="AnalysisEntrancePropertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations" value="classpath:entranceConfig.properties" />
+		<property name="locations">
+			<list>
+				<value>classpath:properties/entranceConfig_.properties</value>
+				<value>classpath*:properties/entranceConfig.properties</value>
+			</list>
+		</property>
 	</bean>
 	<bean id="entranceConfig" class="com.colomob.immortal.analysis.entrance.basic.EntranceConfig">
 		<property name="requestHttp" value="${analysisRequestHttp}"/>
