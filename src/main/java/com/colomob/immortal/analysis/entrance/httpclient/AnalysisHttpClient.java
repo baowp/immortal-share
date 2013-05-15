@@ -14,6 +14,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
@@ -26,6 +27,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.springframework.stereotype.Component;
 
+import com.colomob.immortal.analysis.entrance.util.BeanUtil;
+
 /**
  * @author baowp
  * 
@@ -36,9 +39,15 @@ public class AnalysisHttpClient {
 	public void request(String url, Object sendDTO) {
 		HttpClient httpclient = new DefaultHttpClient();
 
+		Map<String, Object> param = BeanUtil.bean2map(sendDTO);
 		List<NameValuePair> formparams = new ArrayList<NameValuePair>();
-		formparams.add(new BasicNameValuePair("userid", "value1"));
-		formparams.add(new BasicNameValuePair("username", "用户名"));
+		for (Map.Entry<String, Object> entry : param.entrySet()) {
+			if (entry.getValue() != null) {
+				String key = entry.getKey();
+				String value = entry.getValue().toString();
+				formparams.add(new BasicNameValuePair(key, value));
+			}
+		}
 		HttpPost httppost = new HttpPost(url);
 		try {
 			UrlEncodedFormEntity form = new UrlEncodedFormEntity(formparams,
@@ -64,6 +73,7 @@ public class AnalysisHttpClient {
 					while ((c = reader.read()) > -1)
 						System.out.print((char) c);
 				} finally {
+					reader.close();
 					instream.close();
 				}
 			}
