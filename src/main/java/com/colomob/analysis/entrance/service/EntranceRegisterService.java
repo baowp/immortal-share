@@ -7,9 +7,9 @@
  * Copyright 2013-2015 Colomob.com Corporation Limited.
  * All rights reserved.
  */
-package com.colomob.immortal.analysis.entrance.service;
+package com.colomob.analysis.entrance.service;
 
-import com.colomob.immortal.analysis.entrance.dto.RegisterDTO;
+import com.colomob.analysis.entrance.dto.RegisterDTO;
 
 /**
  * @author baowp

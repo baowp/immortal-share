@@ -7,7 +7,7 @@
  * Copyright 2013-2015 Colomob.com Corporation Limited.
  * All rights reserved.
  */
-package com.colomob.immortal.analysis.entrance.httpclient;
+package com.colomob.analysis.entrance.httpclient;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,7 +27,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.springframework.stereotype.Component;
 
-import com.colomob.immortal.analysis.entrance.util.BeanUtil;
+import com.colomob.analysis.entrance.util.BeanUtil;
 
 /**
  * @author baowp

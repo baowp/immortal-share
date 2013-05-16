@@ -7,7 +7,7 @@
  * Copyright 2013-2015 Colomob.com Corporation Limited.
  * All rights reserved.
  */
-package com.colomob.immortal.analysis.entrance.aspect;
+package com.colomob.analysis.entrance.aspect;
 
 import java.lang.reflect.Method;
 
@@ -18,9 +18,9 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.colomob.immortal.analysis.entrance.annotations.RequestUri;
-import com.colomob.immortal.analysis.entrance.basic.EntranceConfig;
-import com.colomob.immortal.analysis.entrance.httpclient.AnalysisHttpClient;
+import com.colomob.analysis.entrance.annotations.RequestUri;
+import com.colomob.analysis.entrance.basic.EntranceConfig;
+import com.colomob.analysis.entrance.httpclient.AnalysisHttpClient;
 
 /**
  * @author baowp
@@ -34,7 +34,7 @@ public class RequestAspect {
 	@Autowired
 	private AnalysisHttpClient analysisHttpClient;
 
-	@Around("execution(* com.colomob.immortal.analysis.entrance.service..*.*(..))")
+	@Around("execution(* com.colomob.analysis.entrance.service..*.*(..))")
 	public Object advice(ProceedingJoinPoint joinPoint) {
 		MethodSignature methodSignature = (MethodSignature) joinPoint
 				.getSignature();

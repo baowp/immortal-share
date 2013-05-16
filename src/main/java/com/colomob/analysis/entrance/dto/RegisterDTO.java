@@ -7,7 +7,7 @@
  * Copyright 2013-2015 Colomob.com Corporation Limited.
  * All rights reserved.
  */
-package com.colomob.immortal.analysis.entrance.dto;
+package com.colomob.analysis.entrance.dto;
 
 import java.io.Serializable;
 

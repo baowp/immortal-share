@@ -21,9 +21,9 @@
 			</list>
 		</property>
 	</bean>
-	<bean id="entranceConfig" class="com.colomob.immortal.analysis.entrance.basic.EntranceConfig">
+	<bean id="entranceConfig" class="com.colomob.analysis.entrance.basic.EntranceConfig">
 		<property name="requestHttp" value="${analysisRequestHttp}"/>
 	</bean>
-    <context:component-scan base-package="com.colomob.immortal.analysis.entrance" />
+    <context:component-scan base-package="com.colomob.analysis.entrance" />
 	<aop:aspectj-autoproxy proxy-target-class="true"/>
 </beans>

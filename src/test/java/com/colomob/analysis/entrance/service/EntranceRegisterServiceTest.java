@@ -7,7 +7,7 @@
  * Copyright 2013-2015 Colomob.com Corporation Limited.
  * All rights reserved.
  */
-package com.colomob.immortal.analysis.entrance.service;
+package com.colomob.analysis.entrance.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.colomob.immortal.analysis.entrance.dto.RegisterDTO;
+import com.colomob.analysis.entrance.dto.RegisterDTO;
+import com.colomob.analysis.entrance.service.EntranceRegisterService;
 
 /**
  * @author baowp

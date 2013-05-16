@@ -7,7 +7,7 @@
  * Copyright 2013-2015 Colomob.com Corporation Limited.
  * All rights reserved.
  */
-package com.colomob.immortal.analysis.entrance.annotations;
+package com.colomob.analysis.entrance.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -7,7 +7,7 @@
  * Copyright 2013-2015 Colomob.com Corporation Limited.
  * All rights reserved.
  */
-package com.colomob.immortal.analysis.entrance.util;
+package com.colomob.analysis.entrance.util;
 
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Method;

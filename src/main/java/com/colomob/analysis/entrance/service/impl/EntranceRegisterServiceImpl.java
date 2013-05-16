@@ -7,13 +7,13 @@
  * Copyright 2013-2015 Colomob.com Corporation Limited.
  * All rights reserved.
  */
-package com.colomob.immortal.analysis.entrance.service.impl;
+package com.colomob.analysis.entrance.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import com.colomob.immortal.analysis.entrance.annotations.RequestUri;
-import com.colomob.immortal.analysis.entrance.dto.RegisterDTO;
-import com.colomob.immortal.analysis.entrance.service.EntranceRegisterService;
+import com.colomob.analysis.entrance.annotations.RequestUri;
+import com.colomob.analysis.entrance.dto.RegisterDTO;
+import com.colomob.analysis.entrance.service.EntranceRegisterService;
 
 /**
  * @author baowp
@@ -22,7 +22,7 @@ import com.colomob.immortal.analysis.entrance.service.EntranceRegisterService;
 @Service
 public class EntranceRegisterServiceImpl implements EntranceRegisterService {
 
-	@RequestUri("/user/register")
+	@RequestUri("/immortal/register")
 	public int send(RegisterDTO register) {
 		System.out.println("self register");
 		return 0;
