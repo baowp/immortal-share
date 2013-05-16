@@ -16,9 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.http.Header;
+import net.sf.json.JSONObject;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -36,7 +38,10 @@ import com.colomob.analysis.entrance.util.BeanUtil;
 @Component
 public class AnalysisHttpClient {
 
-	public void request(String url, Object sendDTO) {
+	private final org.apache.log4j.Logger logger = org.apache.log4j.Logger
+			.getLogger(this.getClass());
+
+	public JSONObject request(String url, Object sendDTO) {
 		HttpClient httpclient = new DefaultHttpClient();
 
 		Map<String, Object> param = BeanUtil.bean2map(sendDTO);
@@ -57,30 +62,27 @@ public class AnalysisHttpClient {
 			HttpResponse response = httpclient.execute(httppost);
 			HttpEntity entity = response.getEntity();
 
-			for (Header header : response.getAllHeaders()) {
-				System.out.println(header);
-			}
-			System.out.println(response.getStatusLine());
+			int statusCode = response.getStatusLine().getStatusCode();
 
-			if (entity != null) {
+			if (entity != null && statusCode == HttpStatus.SC_OK) {
 				InputStream instream = entity.getContent();
 				InputStreamReader reader = new InputStreamReader(instream);
+				StringBuilder sb = new StringBuilder();
+				int c;
 				try {
-					while (instream.available() > 0) {
-						System.out.print((char) instream.read());
-					}
-					int c;
 					while ((c = reader.read()) > -1)
-						System.out.print((char) c);
+						sb.append((char) c);
 				} finally {
 					reader.close();
-					instream.close();
 				}
+				JSONObject json = JSONObject.fromObject(sb.toString());
+				return json;
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e);
 		} finally {
 			httpclient.getConnectionManager().shutdown();
 		}
+		return null;
 	}
 }

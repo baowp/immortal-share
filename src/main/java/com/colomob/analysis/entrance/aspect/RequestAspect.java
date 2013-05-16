@@ -11,6 +11,8 @@ package com.colomob.analysis.entrance.aspect;
 
 import java.lang.reflect.Method;
 
+import net.sf.json.JSONObject;
+
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -29,6 +31,9 @@ import com.colomob.analysis.entrance.httpclient.AnalysisHttpClient;
 @Component
 @Aspect
 public class RequestAspect {
+
+	private final org.apache.log4j.Logger logger = org.apache.log4j.Logger
+			.getLogger(this.getClass());
 	@Autowired
 	private EntranceConfig entranceConfig;
 	@Autowired
@@ -45,13 +50,13 @@ public class RequestAspect {
 		if (requestUri != null) {
 			String url = entranceConfig.getRequestHttp() + requestUri.value();
 			Object[] args = joinPoint.getArgs();
-			analysisHttpClient.request(url, args[0]);
+			JSONObject json = analysisHttpClient.request(url, args[0]);
+			result = json;
 			try {
-				result = joinPoint.proceed();
+				// result = joinPoint.proceed();
 			} catch (Throwable e) {
-				e.printStackTrace();
+				logger.error(e);
 			}
-			System.out.println(entranceConfig.getRequestHttp());
 		}
 		return result;
 	}

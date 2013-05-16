@@ -23,6 +23,11 @@
 		<version>4.2.5</version>
 	</dependency>            
 	<dependency>
+		<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+		<version>1.2.13</version>
+	</dependency>
+	<dependency>
 		<groupId>org.aspectj</groupId>
 		<artifactId>aspectjrt</artifactId>
 		<version>1.6.0</version>
@@ -47,13 +52,13 @@
 		<artifactId>spring-aop</artifactId>
 		<version>${spring_version}</version>
 	</dependency>   
-	<!-- <dependency>
+	<dependency>
 		<groupId>net.sf.json-lib</groupId>
 		<artifactId>json-lib</artifactId>
 		<version>2.3</version>
 		<classifier>jdk15</classifier>
 	</dependency>		
-	<dependency>
+	<!-- <dependency>
 		<groupId>org.json</groupId>
 		<artifactId>json</artifactId>
 		<version>20090211</version>
