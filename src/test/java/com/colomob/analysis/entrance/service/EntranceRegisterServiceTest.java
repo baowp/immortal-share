@@ -9,6 +9,8 @@
  */
 package com.colomob.analysis.entrance.service;
 
+import net.sf.json.JSONObject;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +18,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.colomob.analysis.entrance.dto.RegisterDTO;
-import com.colomob.analysis.entrance.service.EntranceRegisterService;
 
 /**
  * @author baowp
@@ -32,8 +33,8 @@ public class EntranceRegisterServiceTest {
 	@Test
 	public void testSend() {
 		RegisterDTO register = getRegister();
-		int i = entranceRegisterService.send(register);
-		System.out.println(i);
+		JSONObject json = entranceRegisterService.send(register);
+		System.out.println(json);
 	}
 
 	private RegisterDTO getRegister() {

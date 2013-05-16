@@ -9,6 +9,8 @@
  */
 package com.colomob.analysis.entrance.service;
 
+import net.sf.json.JSONObject;
+
 import com.colomob.analysis.entrance.dto.RegisterDTO;
 
 /**
@@ -17,7 +19,6 @@ import com.colomob.analysis.entrance.dto.RegisterDTO;
  */
 public interface EntranceRegisterService {
 
-	int send(RegisterDTO register);
+	JSONObject send(RegisterDTO register);
 
-	int setout(RegisterDTO register);
 }

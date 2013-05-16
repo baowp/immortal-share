@@ -9,6 +9,8 @@
  */
 package com.colomob.analysis.entrance.service.impl;
 
+import net.sf.json.JSONObject;
+
 import org.springframework.stereotype.Service;
 
 import com.colomob.analysis.entrance.annotations.RequestUri;
@@ -23,14 +25,9 @@ import com.colomob.analysis.entrance.service.EntranceRegisterService;
 public class EntranceRegisterServiceImpl implements EntranceRegisterService {
 
 	@RequestUri("/immortal/register")
-	public int send(RegisterDTO register) {
+	public JSONObject send(RegisterDTO register) {
 		System.out.println("self register");
-		return 0;
-	}
-
-	public int setout(RegisterDTO register) {
-		System.out.println("self setout");
-		return 0;
+		return null;
 	}
 
 }

@@ -9,7 +9,6 @@
  */
 package com.colomob.analysis.entrance.httpclient;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -59,7 +58,13 @@ public class AnalysisHttpClient {
 					"UTF-8");
 			httppost.setEntity(form);
 
-			HttpResponse response = httpclient.execute(httppost);
+			HttpResponse response = null;
+			try {
+				response = httpclient.execute(httppost);
+			} catch (Exception e) {
+				// TODO write dto to disk
+				throw e;
+			}
 			HttpEntity entity = response.getEntity();
 
 			int statusCode = response.getStatusLine().getStatusCode();
@@ -78,7 +83,7 @@ public class AnalysisHttpClient {
 				JSONObject json = JSONObject.fromObject(sb.toString());
 				return json;
 			}
-		} catch (IOException e) {
+		} catch (Exception e) {
 			logger.error(e);
 		} finally {
 			httpclient.getConnectionManager().shutdown();
