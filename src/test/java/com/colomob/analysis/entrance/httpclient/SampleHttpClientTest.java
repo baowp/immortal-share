@@ -12,6 +12,8 @@ package com.colomob.analysis.entrance.httpclient;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +27,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.junit.Test;
@@ -36,9 +39,18 @@ import org.junit.Test;
 public class SampleHttpClientTest {
 
 	@Test
-	public void testGet() throws ClientProtocolException, IOException {
+	public void testGet() throws ClientProtocolException, IOException,
+			URISyntaxException {
 		HttpClient httpclient = new DefaultHttpClient();
-		HttpGet httpget = new HttpGet("http://localhost:8080/immortal/register");
+		URIBuilder builder = new URIBuilder();
+		builder.setScheme("http").setHost("localhost").setPort(8080)
+				.setPath("/immortal/register");
+		builder.setParameter("userid", "value1")
+				.setParameter("username", "用户名");
+		URI uri = builder.build();
+
+		HttpGet httpget = new HttpGet(uri);
+
 		HttpResponse response = httpclient.execute(httpget);
 		HttpEntity entity = response.getEntity();
 		for (Header header : response.getAllHeaders()) {
@@ -49,12 +61,18 @@ public class SampleHttpClientTest {
 
 		if (entity != null) {
 			InputStream instream = entity.getContent();
+			InputStreamReader reader = new InputStreamReader(instream);
 			try {
 				while (instream.available() > 0) {
 					System.out.print((char) instream.read());
 				}
+				int c;
+				StringBuilder sb = new StringBuilder();
+				while ((c = reader.read()) > -1)
+					sb.append((char) c);
+				System.out.println(sb);
 			} finally {
-				instream.close();
+				reader.close();
 			}
 		}
 	}
