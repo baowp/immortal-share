@@ -5,12 +5,14 @@
      xmlns:jdbc="http://www.springframework.org/schema/jdbc"
      xmlns:context="http://www.springframework.org/schema/context"
      xmlns:aop="http://www.springframework.org/schema/aop"
+     xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
      xsi:schemaLocation="
      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
      http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-2.5.xsd
      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd  
-     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+     http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
 	<bean id="AnalysisEntrancePropertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -26,4 +28,9 @@
 	</bean>
     <context:component-scan base-package="com.colomob.analysis.entrance" />
 	<aop:aspectj-autoproxy proxy-target-class="true"/>
+	
+	<!-- dubbo -->
+<!-- 	<dubbo:application name="jpetstore-consume"/> -->
+<!-- 	<dubbo:registry id="jpetstoreRegistry2" address="zookeeper://192.168.1.109:2181"/> -->
+<!-- 	<dubbo:reference id="dubboService" interface="com.colomob.analysis.entrance.service.DubboService" version="1.0.1"/> -->
 </beans>
